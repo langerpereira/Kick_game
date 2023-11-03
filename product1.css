@@ -1,0 +1,43 @@
+body {
+    background-color: #111;
+}
+
+.section-p1{
+    padding: 40px 80px;
+}
+
+#product1{
+    text-align: center;
+}
+
+#product1 .pro{
+    width: 23%;
+    background-color: #222629;
+    color: rgb(158, 149, 149);
+    min-width: 250px;
+    padding: 10px 12px;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 20px;
+    cursor: pointer;
+    margin: 15px 0;
+    transition: 0.2s ease;
+}
+
+#product1 .pro:hover{
+    box-shadow: 20px 20px 20px rgb(37, 39, 47);
+}
+
+#product1 .pro img{
+    width: 100%;
+    border-radius: 20px;
+}
+
+#product1 .pro .des{
+    text-align: start;
+    padding: 10px 0;
+}
+
+#product1 .pro .des span{
+    color: aliceblue;
+    font-size: 20px;
+}
