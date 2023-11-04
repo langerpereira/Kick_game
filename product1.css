@@ -5,22 +5,51 @@ body {
 .section-p1{
     padding: 40px 80px;
 }
+.main-banner{
+    padding: 40px 80px;
+}
+.img_main{
+    padding: 40px 80px;
+}
+
+.nav-bar{
+display: flex;
+justify-content: space-between;
+}
+
+.h1-main{
+    font-size: 50px;
+    color: rgb(255, 255, 255);
+    font-family: Helvetica;
+}
+.cart1{
+    padding: 40px 40px;
+}
 
 #product1{
     text-align: center;
 }
 
+#product1 .pro-container{
+    display: flex;
+    justify-content: space-between ;
+    padding-top: 20px;
+    flex-wrap: wrap;
+}
+
 #product1 .pro{
-    width: 23%;
+    width: 21%;
     background-color: #222629;
     color: rgb(158, 149, 149);
     min-width: 250px;
     padding: 10px 12px;
     border: 1px solid rgb(0, 0, 0);
-    border-radius: 20px;
+    border-radius: 10px;
     cursor: pointer;
     margin: 15px 0;
     transition: 0.2s ease;
+    position: relative;
+    margin-top: 20px;
 }
 
 #product1 .pro:hover{
@@ -34,10 +63,70 @@ body {
 
 #product1 .pro .des{
     text-align: start;
-    padding: 10px 0;
+    padding: 0px 0;
 }
 
 #product1 .pro .des span{
     color: aliceblue;
     font-size: 20px;
+}
+
+#product1 .pro .cart{
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50px;
+    background-color: white;
+    font-weight: 500;
+    color: rgb(0, 131, 87);
+    border-color: 3px solid #222629;
+    position: absolute;
+    bottom: 20px;
+    right: 10px;
+}
+
+.banner img{
+    height: 80%;
+    width: 100%;
+}
+.banner{
+    height: 600px;
+    margin-bottom: 0%;
+    padding-bottom: 0%;
+}
+.img_main{
+    display: flex;
+}
+
+.img1 img{
+    height: 500px;
+    width: 600px;
+}
+
+.img1{
+        flex: 1;
+        background-color: black;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+}
+.button{
+    border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.button1{
+    background-color: #848789;
+}
+.button2{
+    background-color: #848484;
 }
