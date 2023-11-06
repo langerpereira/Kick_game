@@ -6,7 +6,7 @@ body {
     padding: 40px 80px;
 }
 .main-banner{
-    padding: 40px 80px;
+    padding: 30px 40px;
 }
 .img_main{
     padding: 40px 80px;
@@ -130,3 +130,15 @@ justify-content: space-between;
 .button2{
     background-color: #848484;
 }
+
+.navBottom{
+ display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.menuItem {
+    margin-right: 50px;
+    cursor: pointer;
+    color: lightgray;
+    font-weight: 400;
+  }
