@@ -6,8 +6,7 @@
     <title>Admin Page</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Old+Standard+TT&family=Roboto:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
+      rel="stylesheet"/>
 
     <link rel="stylesheet" href="style.css" />
   </head>

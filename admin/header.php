@@ -2,7 +2,12 @@
 
    <div class="flex">
 
-      <a href="#" class="logo">foodies</a>
+   <a href="index.html">
+            <span class="navItem">
+              <img src="./img/bot1_copy.png" alt="">
+            </span>
+         </a>
+ 
 
       <nav class="navbar">
          <a href="admin.php">add products</a>
