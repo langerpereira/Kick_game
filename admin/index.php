@@ -41,9 +41,9 @@
             required
           />
           <input
-            type="number"
-            name="p_price"
-            placeholder="enter the product quantity"
+            type="text"
+            name="p_name"
+            placeholder="enter the product name"
             class="box"
             required
           />
