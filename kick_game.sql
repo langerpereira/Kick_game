@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 08, 2023 at 07:36 AM
+-- Generation Time: Nov 08, 2023 at 09:06 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -20,6 +20,17 @@ SET time_zone = "+00:00";
 --
 -- Database: `ecomshoe`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `brand`
+--
+
+CREATE TABLE `brand` (
+  `b_id` int(11) NOT NULL,
+  `b_name` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -103,7 +114,8 @@ CREATE TABLE `product` (
   `p_price` float NOT NULL,
   `p_desc` varchar(250) NOT NULL,
   `s_id` int(11) DEFAULT NULL,
-  `p_pic` text NOT NULL
+  `p_pic` text NOT NULL,
+  `b_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -151,6 +163,12 @@ CREATE TABLE `supplierorder` (
 --
 
 --
+-- Indexes for table `brand`
+--
+ALTER TABLE `brand`
+  ADD PRIMARY KEY (`b_id`);
+
+--
 -- Indexes for table `cart`
 --
 ALTER TABLE `cart`
@@ -196,7 +214,8 @@ ALTER TABLE `payment`
 --
 ALTER TABLE `product`
   ADD PRIMARY KEY (`p_id`),
-  ADD KEY `s_id` (`s_id`);
+  ADD KEY `s_id` (`s_id`),
+  ADD KEY `b_id` (`b_id`);
 
 --
 -- Indexes for table `productcart`
@@ -225,6 +244,12 @@ ALTER TABLE `supplierorder`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `brand`
+--
+ALTER TABLE `brand`
+  MODIFY `b_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `customer`
@@ -281,7 +306,8 @@ ALTER TABLE `payment`
 -- Constraints for table `product`
 --
 ALTER TABLE `product`
-  ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`s_id`) REFERENCES `supplier` (`s_id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`s_id`) REFERENCES `supplier` (`s_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `product_ibfk_2` FOREIGN KEY (`b_id`) REFERENCES `brand` (`b_id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `productcart`
