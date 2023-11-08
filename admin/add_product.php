@@ -1,21 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Admin Page</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Old+Standard+TT&family=Roboto:wght@400;500;700&display=swap"
-      rel="stylesheet"/>
+<?php
+include('../includes/connect.php');
+if (isset($_POST['add_product'])) {
+    $shoe_name = $_POST['p_name'];
+    $shoe_desc = $_POST['p_desc'];
+    $shoe_supplier = $_POST['s_id'];
+    $shoe_brand = $_POST['b_id'];
+    $shoe_price = $_POST['p_price'];
 
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
+    $shoe_pic = $_FILES['mimage']['name'];
+    $temp_shoe_pic = $_FILES['mimage']['tmp_name'];
 
-    <?php 
+    if($shoe_name=='' or $shoe_desc=='' or $shoe_supplier=='' or $shoe_brand=='' or $shoe_price=='' or $shoe_pic==''){
+        echo "<script>alert('Please fill all the available fields')</script>";
+        exit();
+    }
+    else{
+        move_uploaded_file($temp_shoe_pic,"../assets/shoe_Images/$shoe_pic");
+        
+        $insert_query = "insert into `product` (p_name,p_price,p_desc,s_id,p_pic,b_id) values ('$shoe_name','$shoe_price','$shoe_desc',$shoe_supplier,'$shoe_pic',$shoe_brand)";
+        $result_query = mysqli_query($conn,$insert_query);
+        if($result_query){
+            echo "<script>alert('shoe Added Successfully')</script>";
+        }
+    }
+
+    echo "<script>location.href='./index.php?add_product';</script>";
+}
+?>
+  <?php 
     include("header.php");
     ?>
-    <!-- 
+
     <div class="container">
       <section>
         <form
@@ -60,9 +75,4 @@
             name="add_product"
             class="btn"
           />
-        </form>  -->
-      </section>
-    </div>
-    <script src="script.js"></script>
-  </body>
-</html>
+        </form>
