@@ -41,6 +41,13 @@
             required
           />
           <input
+            type="number"
+            name="p_price"
+            placeholder="enter the product quantity"
+            class="box"
+            required
+          />
+          <input
             type="file"
             name="p_image"
             accept="image/png, image/jpg, image/jpeg"
