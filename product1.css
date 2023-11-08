@@ -266,3 +266,9 @@ footer {
       color: white;
       box-shadow: 0 12px 16px 0 rgba(234, 24, 196, 0.979),0 17px 50px 0 rgba(255, 31, 31, 0.19);
     }
+
+    /* cart */
+    .cart-page{
+      margin: 80px auto;
+      border-collapse: collapse;
+    }
