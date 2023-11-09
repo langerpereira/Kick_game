@@ -9,8 +9,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-
 </head>
 
 <body class="bg-dark-subtle">
@@ -27,7 +25,6 @@
                 </nav>
             </div>
         </nav>
-
 
         <div class="container-fluid bg-secondary text-white d-flex justify-content-center ">
             <h2 class="text-light">Manage Kick_Game </h2>
@@ -48,15 +45,11 @@
                     <button class="bg-secondary text-white"><a href="" class="nav-link text-light bg-secondary text-white p-2 rounded border border-light">All Payments</a></button>
                     <button class="bg-secondary text-white"><a href="" class="nav-link text-light bg-secondary text-white p-2 rounded border border-light">List Users</a></button>
                     <button class="bg-danger"><a href="" class="nav-link text-light bg-danger p-2 rounded border border-danger">Logout</a></button>
-
                 </div>
             </div>
         </div>
         
-
         <div class="container rounded p-3 mb-2 bg-dark text-white pt-3 pb-3 mb-3 mt-3">
-
-        
         <?php
                 if(isset($_GET['add_product'])){
                   include('add_product.php');

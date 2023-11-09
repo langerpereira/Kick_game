@@ -7,6 +7,7 @@
     }
     .bot{
       display: flex;
+      flex-direction: column;
     }
     body{
         font-family: 'Old Standard TT', serif;
