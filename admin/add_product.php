@@ -1,11 +1,11 @@
 <?php
 include('../includes/connect.php');
 if (isset($_POST['add_product'])) {
-  $shoe_name = $_POST['mname'];
-  $shoe_desc = $_POST['mdesc'];
-  $shoe_seller = $_POST['sid'];
-  $shoe_brand = $_POST['bid'];
-  $shoe_price = $_POST['mprice'];
+  $shoename = $_POST['mname'];
+  $shoedesc = $_POST['mdesc'];
+  $shoeseller = $_POST['sid'];
+  $shoebrand = $_POST['bid'];
+  $shoeprice = $_POST['mprice'];
 
     $shoe_pic = $_FILES['mimage']['name'];
     $temp_shoe_pic = $_FILES['mimage']['tmp_name'];
@@ -30,13 +30,11 @@ if (isset($_POST['add_product'])) {
   <?php 
     include("header.php");
     ?>
-
-    <div class="container">
-      <section>
         <form
           action=""
           method="post"
           enctype="multipart/form-data">
+        >
           <h3>add a new product</h3>
           <input
             type="text"
@@ -45,22 +43,6 @@ if (isset($_POST['add_product'])) {
             class="box"
             required
           />
-          <div>
-        <label for="sname" class="form-label">Enter Supplier</label>
-        <select class="form-select mb-3" id="sname" aria-label="Default select example" name="sid">
-            <option selected></option>
-            <?php
-            include('../includes/connect.php');
-            $select_query = "select * from `seller`;";
-            $result_query = mysqli_query($conn, $select_query);
-            while ($row = mysqli_fetch_assoc($result_query)) {
-                $supplier_id = $row['s_id'];
-                $supplier_name = $row['s_name'];
-                echo "<option value='$supplier_id'>$supplier_name</option>";
-            }
-            ?>
-        </select>
-    </div>
           <label for="bname" class="form-label">Enter Brand</label>
         <select class="form-select mb-3" id="bname" aria-label="Default select example" name="bid">
             <option selected></option>
@@ -74,18 +56,15 @@ if (isset($_POST['add_product'])) {
                 echo "<option value='$brand_id'>$brand_name</option>";
             }
             ?>
-        </select>
-    </div>
-    <label for="floatingInputGroup2" class="form-label">Mobile Price</label>
+    <label for="floatingInputGroup2" class="form-label">Shoe Price</label>
     <div class="input-group mb-3">
         <span class="input-group-text">&#8377;</span>
         <div class="form-floating">
             <input type="text" class="form-control" id="floatingInputGroup2" placeholder="Price" name="mprice">
             <label for="floatingInputGroup2">Price</label>
         </div>
-    </div>
     <div class="mb-3">
-        <label for="formFile" class="form-label">Mobile Image</label>
+        <label for="formFile" class="form-label">Shoe Image</label>
         <input class="form-control" type="file" id="formFile" name="mimage">
     </div>
           <input
