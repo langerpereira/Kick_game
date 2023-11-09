@@ -7,13 +7,19 @@ $con = new mysqli("localhost","root","","kick_game");
 if($con->connect_error){
   die("failed to connect : ". $con->connect_error);
 }else{
+
   $stmt = $con->prepare("select * from `customer` where c_uname=?");
+
+ 
   $stmt->bind_param("s", $user_name);
   $stmt->execute();
   $stmt_result = $stmt->get_result();
   if($stmt_result->num_rows > 0){
     $data = $stmt_result->fetch_assoc();
+
     if($data["c_pwd"] === $user_pass){
+
+
       echo "<h2>Login Sucessfull</h2>";
       echo "<script>location.href='./index.html';</script>";
     }else{
