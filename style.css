@@ -50,6 +50,12 @@ nav {
 .limitedOffer {
   font-size: 15px;
   cursor: pointer;
+  border-radius: 6px;
+  color: black;
+}
+
+.limitedOffer:hover{
+  background-color: rgb(235, 235, 16);
 }
 
 .navBottom {
