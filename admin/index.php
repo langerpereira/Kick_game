@@ -1,18 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <!--  
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Admin Page</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Old+Standard+TT&family=Roboto:wght@400;500;700&display=swap"
-      rel="stylesheet"/>
-
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
---><head>
+<head>
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
@@ -100,8 +88,10 @@
           />  -->
           <div class="row pb-2 bg-dark-subtle ">
             <div class="col-md-12 bg-dark-subtle d-flex flex-column align-items-center gap-4 pt-4">
+          <div class="row pb-2 bg-dark ">
+            <div class="col-md-12 bg-dark d-flex flex-column align-items-center gap-4 pt-4">
                 <a href="">
-                    <img src="../assets/images/samsung_galaxy_ultra.jpg" alt="Admin Image" width="250px" height="250px">
+                    <img src="../assets/shoes/airforce.avif" alt="Admin Image" width="250px" height="250px">
                 </a>
 Q                <h5 class="text-center">KICK_GAME</h5>
                 <div class="button text-center d-flex gap-2">
@@ -118,7 +108,7 @@ Q                <h5 class="text-center">KICK_GAME</h5>
                 </div>
             </div>
         </div>
-        </form>  
+        <div class="container rounded bg-body-tertiary pt-3 pb-3 mb-3 mt-3">
         <?php
                 if(isset($_GET['add_product'])){
                   include('add_product.php');
@@ -131,9 +121,9 @@ Q                <h5 class="text-center">KICK_GAME</h5>
                 }
                 
         ?>
-        
-      </section>
+        </div>
     </div>
-    <script src="script.js"></script>
-  </body>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
 </html>
