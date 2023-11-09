@@ -50,9 +50,9 @@
         <div class="container-fluid bg-dark d-flex justify-content-center ">
             <h2 class="text-light">Manage Shoes</h2>
         </div>
-    <?php 
-    include("header.php");
-    ?>
+    <!-- <?php 
+    // include("header.php");
+    ?> -->
     <!-- 
     <div class="container">
       <section>
@@ -103,7 +103,7 @@
                 <a href="">
                     <img src="../assets/images/samsung_galaxy_ultra.jpg" alt="Admin Image" width="250px" height="250px">
                 </a>
-                <h5 class="text-center">KICK_GAME</h5>
+Q                <h5 class="text-center">KICK_GAME</h5>
                 <div class="button text-center d-flex gap-2">
                     <button><a href="./index.php?add_product" class="nav-link text-light bg-dark p-2">Add Shoe</a></button>
                     <button><a href="" class="nav-link text-light bg-dark p-2">View Shoes</a></button>
