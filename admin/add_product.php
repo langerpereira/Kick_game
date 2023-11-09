@@ -27,9 +27,7 @@ if (isset($_POST['add_product'])) {
     echo "<script>location.href='./index.php?add_product';</script>";
 }
 ?>
-  <?php 
-    include("header.php");
-    ?>
+
         <form
           action=""
           method="post"

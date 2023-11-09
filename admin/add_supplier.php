@@ -1,6 +1,6 @@
 <?php
 include('../includes/connect.php');
-if (isset($_POST['add_seller'])) {
+if (isset($_POST['add_supplier'])) {
 
     $supplier_name = $_POST['sname'];
     $supplier_email = $_POST['semail'];
@@ -8,17 +8,17 @@ if (isset($_POST['add_seller'])) {
     $supplier_pass = $_POST['spass'];
     $supplier_address = $_POST['saddress'];
 
-    $select_query = "select * from `seller` where s_name='$supplier_name'";
+    $select_query = "select * from `supplier` where s_name='$supplier_name'";
     $result_select = mysqli_query($conn, $select_query);
     $numRows = mysqli_num_rows($result_select);
     if ($numRows > 0) {
-        echo "<script>alert('Seller already Exists')</script>";
+        echo "<script>alert('supplier already Exists')</script>";
     } 
     else {
-        $insert_query = "insert into `seller` (s_name,s_add,s_uname,s_pwd,s_email) values ('$supplier_name','$supplier_address','$supplier_uname','$supplier_pass','$supplier_email')";
+        $insert_query = "insert into `supplier` (s_name,s_add,s_uname,s_pwd,s_email) values ('$supplier_name','$supplier_address','$supplier_uname','$supplier_pass','$supplier_email')";
         $result = mysqli_query($conn, $insert_query);
         if ($result) {
-            echo "<script>alert('Seller Added Successfully')</script>";
+            echo "<script>alert('supplier Added Successfully')</script>";
         }
     }
 }
@@ -26,7 +26,7 @@ if (isset($_POST['add_seller'])) {
 
 
     <form action="" method="post">
-        <h3>Add Seller</h3>
+        <h3>Add supplier</h3>
         <div class="mb-3">
             <label for="exampleInputUName1" class="form-label">Name</label>
             <input type="text" class="form-control" id="exampleInputName1" name="sname">
@@ -47,5 +47,5 @@ if (isset($_POST['add_seller'])) {
             <label for="exampleInputUaddress1" class="form-label">Address</label>
             <input type="text" class="form-control" name="saddress" id="exampleInputUaddress1">
         </div>
-        <button type="submit" class="btn btn-success" name="add_seller">Submit</button>
+        <button type="submit" class="btn btn-success" name="add_supplier">Submit</button>
     </form>

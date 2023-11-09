@@ -9,22 +9,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="../style.css">
-    <style>
-    /* footer {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        left: 0;
-    } */
-    </style>
 </head>
 
 <body class="bg-dark-subtle">
     <div class="container-fluid p-0">
         <nav class="navbar navbar-expand-lg navbar-light bg-dark ">
             <div class="container-fluid">
-                <img src="#" alt="Logo" class="logo">
+                <img src="./bot1.png" alt="Logo" class="logo">
                 <nav class="navbar navbar-expand-lg">
                     <ul class="navbar-nav">
                         <li class="nav-item">
@@ -35,80 +26,30 @@
             </div>
         </nav>
 
-        <div class="container-fluid bg-dark d-flex justify-content-center ">
-            <h2 class="text-light">Manage Shoes</h2>
+        <div class="container-fluid bg-secondary text-white d-flex justify-content-center ">
+            <h2 class="text-light">Manage Kick_Game </h2>
         </div>
-    <!-- <?php 
-    // include("header.php");
-    ?> -->
-    <!-- 
-    <div class="container">
-      <section>
-        <form
-          action=""
-          method="post"
-          class="add-product-form"
-          style="color: rgb(81, 81, 81)"
-        >
-          <h3>add a new product</h3>
-          <input
-            type="text"
-            name="p_name"
-            placeholder="enter the product name"
-            class="box"
-            required
-          />
-          <input
-            type="number"
-            name="p_price"
-            min="0"
-            placeholder="enter the product price"
-            class="box"
-            required
-          />
-          <input
-            type="text"
-            name="p_desc"
-            placeholder="enter the product desc"
-            class="box"
-            required
-          />
-          <input
-            type="file"
-            name="p_image"
-            accept="image/png, image/jpg, image/jpeg"
-            class="box"
-            required
-          />
-          <input
-            type="submit"
-            value="add the product"
-            name="add_product"
-            class="btn"
-          />  -->
-          <div class="row pb-2 bg-dark-subtle ">
-            <div class="col-md-12 bg-dark-subtle d-flex flex-column align-items-center gap-4 pt-4">
-          <div class="row pb-2 bg-dark ">
-            <div class="col-md-12 bg-dark d-flex flex-column align-items-center gap-4 pt-4">
-                <a href="">
-                    <img src="../assets/shoes/airforce.avif" alt="Admin Image" width="250px" height="250px">
-                </a>
-Q                <h5 class="text-center">KICK_GAME</h5>
-                <div class="button text-center d-flex gap-2">
-                    <button><a href="./index.php?add_product" class="nav-link text-light bg-dark p-2">Add Shoe</a></button>
-                    <button><a href="" class="nav-link text-light bg-dark p-2">View Shoes</a></button>
-                    <button><a href="./index.php?add_supplier" class="nav-link text-light bg-dark p-2">Add Supplier</a></button>
-                    <button><a href="" class="nav-link text-light bg-dark p-2">View Suppliers</a></button>
-                    <button><a href="./index.php?add_brand" class="nav-link text-light bg-dark p-2">Add Brand</a></button>
-                    <button><a href="" class="nav-link text-light bg-dark p-2">View Brands</a></button>
-                    <button><a href="" class="nav-link text-light bg-dark p-2">All Orders</a></button>
-                    <button><a href="" class="nav-link text-light bg-dark p-2">All Payments</a></button>
-                    <button><a href="" class="nav-link text-light bg-dark p-2">List Users</a></button>
-                    <button class="bg-danger"><a href="" class="nav-link text-light bg-danger p-2">Logout</a></button>
+
+        <div class="row pb-2 bg-secondary text-white ">
+            <div class="col-md-12 p-3 mb-2 bg-dark text-white d-flex flex-column align-items-center gap-4 pt-4">
+                <h5 class="text-center">Langer Pereira</h5>
+                <div class="button text-center d-flex gap-4">
+                    <button class="bg-secondary text-white"><a href="./index.php?add_product" class="nav-link text-light bg-secondary text-white p-2 rounded border border-light">Add Shoe</a></button>
+                    <button class="bg-secondary text-white"><a href="" class="nav-link text-light bg-secondary text-white p-2 rounded border border-light">View Shoes</a></button>
+                    <button class="bg-secondary text-white"><a href="./index.php?add_supplier" class="nav-link text-light bg-secondary text-white p-2 rounded border border-light">Add
+                            Seller</a></button>
+                    <button class="bg-secondary text-white"><a href="" class="nav-link text-light bg-secondary text-white p-2 rounded border border-light">View Sellers</a></button>
+                    <button class="bg-secondary text-white"><a href="./index.php?add_brand" class="nav-link text-light bg-secondary text-white p-2 rounded border border-light">Add Brand</a></button>
+                    <button class="bg-secondary text-white"><a href="" class="nav-link text-light bg-secondary text-white p-2 rounded border border-light">View Brands</a></button>
+                    <button class="bg-secondary text-white"><a href="" class="nav-link text-light bg-secondary text-white p-2 rounded border border-light">All Orders</a></button>
+                    <button class="bg-secondary text-white"><a href="" class="nav-link text-light bg-secondary text-white p-2 rounded border border-light">All Payments</a></button>
+                    <button class="bg-secondary text-white"><a href="" class="nav-link text-light bg-secondary text-white p-2 rounded border border-light">List Users</a></button>
+                    <button class="bg-danger"><a href="" class="nav-link text-light bg-danger p-2 rounded border border-danger">Logout</a></button>
                 </div>
             </div>
         </div>
-        <div class="container rounded bg-body-tertiary pt-3 pb-3 mb-3 mt-3">
+        
+        <div class="container rounded p-3 mb-2 bg-dark text-white pt-3 pb-3 mb-3 mt-3">
         <?php
                 if(isset($_GET['add_product'])){
                   include('add_product.php');
