@@ -33,10 +33,10 @@ if (isset($_POST['add_user'])) {
   </head>
   <body>
     <a href="index.html"><img src="./img/bot1.png" alt=""></a>
-    
+
     <div class="wrapper">
       <h2 style="color: aliceblue">Registration</h2>
-      <form style="background-color: transparent">
+      <form style="background-color: transparent" method="post";>
         <div class="input-box">
           <input type="text" placeholder="Enter your username" required name="cuname" />
         </div>
@@ -61,7 +61,7 @@ if (isset($_POST['add_user'])) {
         </div>
         <div class="text">
           <h3>
-            Already have an account? <b><a href="login.html">Login now</a></b>
+            Already have an account? <b><a href="login.php">Login now</a></b>
           </h3>
         </div>
       </form>
