@@ -6,7 +6,7 @@
         session_unset();
         session_destroy();
         echo "<script>alert('Logout Sucessfull')</script>";
-        echo "<script>location.href='./product_airforce.php';</script>";
+        echo "<script>location.href='./login.php';</script>";
     }
 ?>
 
@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="product1.css" />
     <link
     href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Old+Standard+TT&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css"/>
+    <!-- <link rel="stylesheet" href="style.css"/> -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -154,3 +154,4 @@
 
   </body>
 </html>
+ 
