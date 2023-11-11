@@ -23,13 +23,19 @@
         <img src="./img/bot1.png" alt="">
       </span>
    </a>
-   <div class="navBottom">
-    <a href="product_airforce.html"><h3 class="menuItem">AIR FORCE</h3></a>
-    <a><h3 class="menuItem">JORDAN</h3></a>
-    <a><h3 class="menuItem">BLAZER</h3></a>
-    <a><h3 class="menuItem">CRATER</h3></a>
-    <a><h3 class="menuItem">HIPPIE</h3></a>
-</div>
+
+   <div class="navItem">
+                <div class="search" style="display: flex;
+                align-items: center;
+                background-color: rgb(103, 103, 103);
+                padding: 10px 20px;
+                border-radius: 10px;
+                transform: translate(-30%, 30%);">
+                    <input type="text" placeholder="Search..." class="searchInput" style>
+                    <img src="./img/search.png" width="20" height="20" alt="" class="searchIcon">
+                </div>
+            </div>
+
    <div>
      <i class="fa fa-shopping-cart cart1" style="font-size:48px;color:green"></i>
    </div>
@@ -48,7 +54,7 @@
       <div class="pro-container">
         <?php
           
-             getProduct();
+             getProducts();
         ?>
         
         

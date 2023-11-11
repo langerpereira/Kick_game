@@ -19,7 +19,7 @@
     }
 ?>
 
-<form action="" method="post">
+<form action="" method="post" style="background-image: url('https://i.postimg.cc/W41D8j0x/66372.jpg');">
     <h3>Add Brand</h3>
     <div class=" mb-3">
         <label for="exampleInputUBname1" class="form-label " >Brand Name</label>

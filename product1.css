@@ -21,6 +21,17 @@ display: flex;
 justify-content: space-between;
 }
 
+/* search */
+.searchInput {
+  border: none;
+  background-color: transparent;
+}
+
+.searchInput::placeholder {
+  color: lightgray;
+}
+
+
 .h1-main{
   font-size: 50px;
   color: rgb(255, 255, 255);
@@ -135,11 +146,11 @@ cursor: pointer;
   background-color: #848484;
 }
 
-.navBottom{
+/* .navBottom{
 display: flex;
 align-items: center;
 justify-content: center;
-}
+} */
 .menuItem {
   margin-right: 50px;
   cursor: pointer;
