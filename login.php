@@ -1,35 +1,42 @@
 <?php
-if (isset($_POST['add_user'])) {
+include ("./includes/connect.php");
+if (isset($_POST['verify_user'])) {
+global $conn;
 $user_name = $_POST['cuname'];
 $user_pass = $_POST['upass'];
 
-$con = new mysqli("localhost","root","","kick_game");
-if($con->connect_error){
-  die("failed to connect : ". $con->connect_error);
-}else{
+// $conn = new mysqli("localhost","root","","kick_game");
+// if($con->connect_error){
+//   die("failed to connect : ". $con->connect_error);
+// }else{
 
-  $stmt = $con->prepare("select * from `customer` where c_uname=?");
-
- 
-  $stmt->bind_param("s", $user_name);
-  $stmt->execute();
-  $stmt_result = $stmt->get_result();
-  if($stmt_result->num_rows > 0){
-    $data = $stmt_result->fetch_assoc();
-
-    if($data["c_pwd"] === $user_pass){
-
-
-      echo "<h2>Login Sucessfull</h2>";
-      echo "<script>location.href='./index.html';</script>";
+  $select_user_query = "select * from `customer` where c_uname='$user_name'";
+  $result_user_select = mysqli_query($conn, $select_user_query);
+  $numRows = mysqli_num_rows($result_user_select);
+  if ($numRows == 0) {
+      echo "<script>alert('User doesnt Exist')</script>";
+  } else {
+      $db_data = mysqli_fetch_assoc($result_user_select);
+      $db_pass = $db_data['c_pwd'];
+      if($db_pass==$user_pass){
+      echo "<script>alert('Login Sucessfull')</script>";
+      session_start();
+      $_SESSION['username']=$db_data['c_uname'];
+      $_SESSION['password']=$db_data['c_pwd'];
+      $_SESSION['name']=$db_data['c_fname'];
+      $_SESSION['address']=$db_data['c_add'];
+      $_SESSION['cid']=$db_data['c_id'];
+      $_SESSION['email']=$db_data['c_email'];
+      echo "<script>location.href='./product_airforce.php';</script>";
+      // echo "<script>location.href='./product_airforce.html';</script>";
     }else{
-      echo "<h2>Invalid Email or password</h2>";
+      echo "<script>alert('Invalid Email or password')</script>";
     }
-}else{
-  echo "<h2>Invalid Email or password</h2>";
+// }else{
+//   echo "<h2>Invalid Email or password</h2>";
 }
 }
-}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -82,15 +89,15 @@ if($con->connect_error){
   </head>
   <body>
     <div class="bot">
-      <a href="index.html"><img src="./img/bot1.png" alt="" /></a>
+      <a href="product_airforce.php"><img src="./img/bot1.png" alt="" /></a>
     </div>
-    <form action="login.php" method="post">
+    <form action="" method="post">
       <h1 style="color: rgb(0, 0, 0)">Login</h1>
       <label for="username" style="color: rgb(0, 0, 0)" >Username:</label>
       <input type="text" id="username"  name="cuname" required />
       <label for="password" style="color: rgb(0, 0, 0) ">Password:</label>
       <input type="password" id="password" name="upass" required />
-      <input type="submit" value="Login" name="add_user"/>
+      <button type="submit" name="verify_user">Login</button>
       <div class="signup">
         <p>Don't have an account? <a href="Registration.php">Sign up</a></p>
       </div>
