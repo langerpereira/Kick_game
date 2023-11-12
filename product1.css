@@ -22,6 +22,15 @@ justify-content: space-between;
 }
 
 /* search */
+.search {
+  display: flex;
+  align-items: center;
+  background-color: gray;
+  padding: 10px 20px;
+  border-radius: 10px;
+  transform: translate(-80%, 10%);
+}
+
 .searchInput {
   border: none;
   background-color: transparent;
@@ -320,8 +329,49 @@ footer {
     /* cart */
     .cart-page{
       margin: 80px auto;
+    }
+    table{
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
       border-collapse: collapse;
     }
+    .cart-info{
+      display: flex;
+      flex-wrap: wrap;
+    }
+    th{
+      width: 50px;
+      text-align: left;
+      padding: 20px;
+      color: #FFFFFF;
+      background-color: #ff523b;
+      font-weight: normal;
+    }
+    td{
+      padding: 10px 5px;
+    }
+
+    td input{
+      width: 40px;
+      height: 30px;
+      padding: 5px;
+    }
+    td a{
+      color: #ff523b;
+      font-size: 15px;
+    }
+    td img{
+      width: 80px;
+      height: 80px;
+      margin-right: 10px;
+      
+    }
+
+
+
+
+
     /* hamburger menu */
 #menu__toggle {
   opacity: 0;
