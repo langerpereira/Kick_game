@@ -17,7 +17,7 @@ if (isset($_POST['add_user'])) {
         $result_query = mysqli_query($conn, $insert_query);
         if ($result_query) {
             echo "<script>alert('Registration Successful')</script>";
-            echo "<script>location.href='./index.html';</script>";
+            echo "<script>location.href='./login.php';</script>";
         }
     }
 }

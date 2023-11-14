@@ -5,10 +5,7 @@ global $conn;
 $user_name = $_POST['cuname'];
 $user_pass = $_POST['upass'];
 
-// $conn = new mysqli("localhost","root","","kick_game");
-// if($con->connect_error){
-//   die("failed to connect : ". $con->connect_error);
-// }else{
+
 
   $select_user_query = "select * from `customer` where c_uname='$user_name'";
   $result_user_select = mysqli_query($conn, $select_user_query);
@@ -28,12 +25,10 @@ $user_pass = $_POST['upass'];
       $_SESSION['cid']=$db_data['c_id'];
       $_SESSION['email']=$db_data['c_email'];
       echo "<script>location.href='./product_airforce.php';</script>";
-      // echo "<script>location.href='./product_airforce.html';</script>";
+      
     }else{
       echo "<script>alert('Invalid Email or password')</script>";
     }
-// }else{
-//   echo "<h2>Invalid Email or password</h2>";
 }
 }
 
@@ -80,16 +75,29 @@ $user_pass = $_POST['upass'];
         background-color: #c60000;
       }
       .signup {
-        color: white;
+        color: white; 
         font-size: 14px;
         text-align: center;
         margin-top: 20px;
       }
+      .Login{
+        background-color: rgb(251, 251, 251);
+        font-size: 16px;
+        color: #000000;
+        padding: 10px 20px;
+        text-align: center;
+        border-radius:8px;
+      }
+
+    .Login:hover{
+      background-color: rgb(135, 253, 135);
+    }
+
     </style>
   </head>
   <body>
     <div class="bot">
-      <a href="product_airforce.php"><img src="./img/bot1.png" alt="" /></a>
+      <a href="index.php"><img src="./img/bot1.png" alt="" /></a>
     </div>
     <form action="" method="post">
       <h1 style="color: rgb(0, 0, 0)">Login</h1>
@@ -97,7 +105,7 @@ $user_pass = $_POST['upass'];
       <input type="text" id="username"  name="cuname" required />
       <label for="password" style="color: rgb(0, 0, 0) ">Password:</label>
       <input type="password" id="password" name="upass" required />
-      <button type="submit" name="verify_user">Login</button>
+      <button type="submit" name="verify_user" class="Login">Login</button>
       <div class="signup">
         <p>Don't have an account? <a href="Registration.php">Sign up</a></p>
       </div>
