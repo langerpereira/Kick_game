@@ -59,7 +59,7 @@
                 
                 <!-- <span>|</span>
                 <a href="Registration.php"><button class="limitedOffer">SIGN-UP</button></a> -->
-                <i class="fa fa-shopping-cart cart1" style="font-size:48px;color:green"></i>
+                <i class="fa fa-shopping-cart cart1" style="font-size:48px;color:green; z-index: 2;"></i>
             </div>
         </div>
 </div>

@@ -19,7 +19,7 @@ function getProducts()
           <span>$product_name</span>
           <h4 style='color: blanchedalmond'>RS $product_price</h4>
         </div>
-        <a href='../cart.php'>
+        <a href='index.php?add_to_cart=$product_id'>
           <i class='fa fa-shopping-cart cart' style='font-size: 24px'></i>
         </a>
       </div>
@@ -72,34 +72,21 @@ function getCartProducts()
             $product_name = $cartData['p_name'];
             $buy_quantity = $cartData['buy_qty'];
             $product_price = $cartData['p_price'];
-            echo "<div class='row mb-4 d-flex justify-content-between align-items-center'>
-            <div class='col-md-2 col-lg-2 col-xl-2'>
-              <img
-                src='./assets/Mobile_Images/$product_pic'
-                class='img-fluid rounded-3' alt='$product_name'>
-            </div>
-            <div class='col-md-3 col-lg-3 col-xl-3'>
-              <h6 class='text-black mb-0'>$product_name</h6>
-            </div>
-            <div class='col-md-3 col-lg-3 col-xl-3 d-flex'>
-
-              <form action='cart.php?pro_id=$product_id' method='post' class='d-flex gap-1'>
-              <input id='form1' min='0' name='quantity' value='$buy_quantity' type='number'
-                class='form-control form-control-sm' />
-
-              <button class='btn btn-dark px-2' name='update_quantity'>Update</button>
-              </form>
-
-            </div>
-            <div class='col-md-3 col-lg-2 col-xl-2 '>
-              <h6 class='mb-0'>Rs $product_price</h6>
-            </div>
-            <div class='col-md-1 col-lg-1 col-xl-1 '>
-              <a href='cart.php?delete_item_cid=$c_id&delete_item_pid=$product_id' class='text-muted'><i class='fas fa-times'></i></a>
-            </div>
-          </div>
-
-          <hr class='my-4'>";
+            echo "<tr>
+            <td>
+              <div class='cart-info'>
+                <img src='./assets/Shoes/$product_pic'/>
+                <div>
+                  <p>Shoes</p>
+                  <small>Price :Rs $product_price</small>
+                  <br>
+                  <a href='cart.php?delete_item_cid=$c_id&delete_item_pid=$product_id' class='text-muted'>REMOVE</a>
+                </div>
+              </div>
+            </td>
+            <td><input type='number' value='1' /></td>
+            <td>50</td>
+          </tr>";
         }
     }
 }
@@ -134,7 +121,7 @@ function cartSummary()
     <h5>Rs $totalPrice</h5>
   </div>
 
-  <a href='payment.php'><button type='button' class='btn btn-success btn-block btn-lg'
+  <a href='payment.php'><button type='button' class='btn btn-success btn-block btn-lg bg-secondary text-white'
     data-mdb-ripple-color='dark'>Proceed for payment</button></a>";
     }
 }
