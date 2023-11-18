@@ -45,7 +45,7 @@
                   <li><a class="menu__item" href="Registration.php">Register</a></li>
                   <li><a class="menu__item" href="product_airforce.php">shoes</a></li>
                   <li><a class="menu__item" href="clothing.html">clothing</a></li>
-                  <li><a class="menu__item" href="#">support</a></li>
+                  <li><a class="menu__item" href="./support.html">support</a></li>
                   <li><a class="menu__item" href="login.php?logout" name="logout" style="color: red;">Log Out</a></li>
               </div>
 

@@ -1,3 +1,36 @@
+<?php
+    include('./restricted.php');
+    include('./includes/connect.php');
+    include('./functions/common_functions.php');
+    if(isset($_GET['logout'])){
+        session_start();
+        session_unset();
+        session_destroy();
+        echo "<script>alert('Logout Sucessfull')</script>";
+        echo "<script>location.href='./index.php';</script>";
+    }
+
+    if(isset($_GET['pro_id'])){
+      session_start();
+      $quantity = $_POST['quantity'];
+      $c_id = $_SESSION['cid'];
+      $p_id = $_GET['pro_id'];
+      $set_query = "UPDATE `cart`
+      SET buy_qty = $quantity
+      WHERE c_id=$c_id and p_id=$p_id;";
+      $result_select = mysqli_query($conn,$set_query);
+      echo "<script>location.href='./cart.php';</script>";
+  }
+
+  if(isset($_GET['delete_item_cid']) && isset($_GET['delete_item_pid'])){
+    global $conn;
+    $c_id = $_GET['delete_item_cid'];
+    $p_id = $_GET['delete_item_pid'];
+    $delete_query = "DELETE FROM `cart` WHERE c_id=$c_id and p_id=$p_id;";
+    mysqli_query($conn,$delete_query);
+    echo "<script>location.href='./cart.php';</script>";
+  }
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -26,7 +59,7 @@
                   <li><a class="menu__item" href="Registration.php">Register</a></li>
                   <li><a class="menu__item" href="product_airforce.php">shoes</a></li>
                   <li><a class="menu__item" href="clothing.html">clothing</a></li>
-                  <li><a class="menu__item" href="#">support</a></li>
+                  <li><a class="menu__item" href="../support.html">support</a></li>
                   <li><a class="menu__item" href="login.php?logout" name="logout" style="color: red;">Log Out</a></li>
               </div>
 
