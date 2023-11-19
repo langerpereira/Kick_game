@@ -228,8 +228,8 @@
             <div class="footerMenu">
                 <h1 class="fMenuTitle" style="color: aliceblue;">About Us</h1>
                 <ul class="fList">
-                    <li class="fListItem">Langer Pereira</li>
-                    <li class="fListItem">Patric</li>
+                    <li class="fListItem">Company</li>
+                    <li class="fListItem">Contact</li>
                     <li class="fListItem">Careers</li>
                     <li class="fListItem">Affiliates</li>
                     <li class="fListItem">Stores</li>
@@ -254,6 +254,24 @@
                     <li class="fListItem">Crater</li>
                     <li class="fListItem">Hippie</li>
                 </ul>
+            </div>
+        </div>
+        <div class="footerRight">
+            <div class="footerRightMenu">
+                <h1 class="fMenuTitle">Subscribe to our newsletter</h1>
+                <div class="fMail">
+                    <input type="text" placeholder="your@email.com" class="fInput">
+                    <button class="fButton">Join!</button>
+                </div>
+            </div>
+            <div class="footerRightMenu">
+                <h1 class="fMenuTitle">Follow Us</h1>
+                <div class="fIcons">
+                    <img src="./img/facebook.png" alt="" class="fIcon">
+                    <img src="./img/twitter.png" alt="" class="fIcon">
+                    <img src="./img/instagram.png" alt="" class="fIcon">
+                    <img src="./img/whatsapp.png" alt="" class="fIcon">
+                </div>
             </div>
         </div>
     </footer>

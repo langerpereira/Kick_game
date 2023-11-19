@@ -49,7 +49,7 @@
   </head>
   <body style="background-color: grey; margin:0px">
     <div class="nav-bar" style="background-color: black;">
-      <a href="index.php">
+      <a href="index.html">
         <span class="navItem">
           <img src="./img/bot1.png" alt="" style="transform: translate(10%, 10%);"/>
         </span>
