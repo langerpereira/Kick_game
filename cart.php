@@ -1,7 +1,7 @@
 <?php
     include('./restricted.php');
     include('./includes/connect.php');
-    include('./functions/common_functions.php');
+    include('./common_functions/common_functions.php');
     if(isset($_GET['logout'])){
         session_start();
         session_unset();
@@ -31,18 +31,25 @@
     echo "<script>location.href='./cart.php';</script>";
   }
 
-<!DOCTYPE html>
+  ?>
+
+<html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cart</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="product1.css" />
     
   </head>
   <body style="background-color: grey; margin:0px">
     <div class="nav-bar" style="background-color: black;">
-      <a href="index.html">
+      <a href="index.php">
         <span class="navItem">
           <img src="./img/bot1.png" alt="" style="transform: translate(10%, 10%);"/>
         </span>
@@ -59,7 +66,7 @@
                   <li><a class="menu__item" href="Registration.php">Register</a></li>
                   <li><a class="menu__item" href="product_airforce.php">shoes</a></li>
                   <li><a class="menu__item" href="clothing.html">clothing</a></li>
-                  <li><a class="menu__item" href="../support.html">support</a></li>
+                  <li><a class="menu__item" href="support.html">support</a></li>
                   <li><a class="menu__item" href="login.php?logout" name="logout" style="color: red;">Log Out</a></li>
               </div>
 
@@ -111,6 +118,17 @@
         </tr>
       </table>
     </div>
+    <div class="col-lg-4 bg-grey">
+                <div class="p-5 ">
+                  <h3 class="fw-bold mb-5 mt-2 pt-1">Summary</h3>
+                  <hr class="my-4">
+
+                  <?php
+                      cartSummary();
+                  ?>
+
+                </div>
+              </div>
 
     <footer style="background-color: black; width: 100%;">
       <div class="footerLeft">
