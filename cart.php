@@ -15,7 +15,7 @@
       $quantity = $_POST['quantity'];
       $c_id = $_SESSION['cid'];
       $p_id = $_GET['pro_id'];
-      $set_query = "UPDATE `cart`
+      $set_query = "UPDATE cart
       SET buy_qty = $quantity
       WHERE c_id=$c_id and p_id=$p_id;";
       $result_select = mysqli_query($conn,$set_query);
@@ -26,7 +26,7 @@
     global $conn;
     $c_id = $_GET['delete_item_cid'];
     $p_id = $_GET['delete_item_pid'];
-    $delete_query = "DELETE FROM `cart` WHERE c_id=$c_id and p_id=$p_id;";
+    $delete_query = "DELETE FROM cart WHERE c_id=$c_id and p_id=$p_id;";
     mysqli_query($conn,$delete_query);
     echo "<script>location.href='./cart.php';</script>";
   }
@@ -46,10 +46,79 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="product1.css" />
     
+<style>
+    .remove-button {
+        text-decoration: none;
+        color: rgb(168, 28, 15);
+        cursor: pointer;
+    }
+
+    .remove-button:hover {
+        color: #c71515;
+    }
+
+    body {
+        background-color: rgb(104, 15, 15);
+        margin: 0;
+        padding: 0;
+    }
+
+    .form1 {
+        background-repeat: no-repeat;
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    form {
+        max-width: 600px;
+        width: 100%;
+        padding: 20px;
+        margin: 20px;
+    }
+
+    h3 {
+        color: white;
+        text-align: center;
+    }
+
+    .input-group {
+        margin-bottom: 20px;
+    }
+
+    .input-group-text {
+        background-color: #8B4513;
+        color: white;
+    }
+
+    .form-control {
+        border-color: #8B4513;
+    }
+
+    .btn-success {
+        background-color: #8B4513;
+        border-color: #8B4513;
+    }
+
+    .btn-success:hover {
+        background-color: #A52A2A;
+        border-color: #A52A2A;
+    }
+
+    .form1 img {
+        max-width: 200%;
+        height: auto;
+        margin-top: 20px;
+    }
+</style>
+
   </head>
   <body style="background-color: grey; margin:0px">
     <div class="nav-bar" style="background-color: black;">
-      <a href="index.html">
+      <a href="index.php">
         <span class="navItem">
           <img src="./img/bot1.png" alt="" style="transform: translate(10%, 10%);"/>
         </span>
@@ -57,11 +126,11 @@
 
       <div class="hamburger-menu">
                 <input id="menu__toggle" type="checkbox" />
-                <label class="menu__btn" for="menu__toggle">
+                <label class="menu_btn" for="menu_toggle">
                   <span></span>
                 </label>
                 <ul class="menu__box">
-                  <li><a class="menu__item" href="index.html">Home</a></li>
+                  <li><a class="menu__item" href="index.php">Home</a></li>
                   <li><a class="menu__item" href="login.php" style="color: rgb(0, 164, 0);">
                   <?php
                    if(!isset($_SESSION))
@@ -73,13 +142,6 @@
                   <li><a class="menu__item" href="support.html">support</a></li>
                   <li><a class="menu__item" href="login.php?logout" name="logout" style="color: red;">Log Out</a></li>
               </div>
-
-      <div>
-        <i
-          class="fa fa-shopping-cart cart1"
-          style="font-size: 48px; color: green"
-        ></i>
-      </div>
     </div>
 
     <div class="small-container cart-page">
@@ -89,7 +151,7 @@
           <th>Quantity</th>
           <th>Subtotal</th>
         </tr>
-        <tr>
+        <!-- <tr>
           <td>
             <div class="cart-info">
               <img src="https://i.postimg.cc/YSpFQ4WP/cab9b853-9d87-4ef3-9db3-2f054c1a654d.webp" alt="">
@@ -103,9 +165,13 @@
           </td>
           <td><input type="number" value="1" /></td>
           <td>50</td>
-        </tr>
-        
-        <tr>
+        </tr> -->
+        <?php
+                    getCartProducts();
+                  ?>
+                 
+
+        <!-- <tr>
           <td>
             <div class="cart-info">
               <img src="https://i.postimg.cc/YSpFQ4WP/cab9b853-9d87-4ef3-9db3-2f054c1a654d.webp" alt="">
@@ -119,7 +185,7 @@
           </td>
           <td><input type="number" value="1" /></td>
           <td>50</td>
-        </tr>
+        </tr> -->
       </table>
     </div>
     <div class="col-lg-4 bg-grey">
@@ -167,24 +233,6 @@
           </ul>
         </div>
       </div>
-      <div class="footerRight">
-        <div class="footerRightMenu">
-          <h1 class="fMenuTitle">Subscribe to our newsletter</h1>
-          <div class="fMail">
-            <input type="text" placeholder="your@email.com" class="fInput" />
-            <button class="fButton">Join!</button>
-          </div>
-        </div>
-        <div class="footerRightMenu">
-          <h1 class="fMenuTitle">Follow Us</h1>
-          <div class="fIcons">
-            <img src="./img/facebook.png" alt="" class="fIcon" />
-            <img src="./img/twitter.png" alt="" class="fIcon" />
-            <img src="./img/instagram.png" alt="" class="fIcon" />
-            <img src="./img/whatsapp.png" alt="" class="fIcon" />
-          </div>
-        </div>
-      </div>
     </footer>
-  </body>
+  </body>
 </html>

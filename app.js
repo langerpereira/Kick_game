@@ -135,3 +135,21 @@ productButton.addEventListener("click", () => {
 close.addEventListener("click", () => {
   payment.style.display = "none";
 });
+
+
+
+function updateCartItemCount() {
+  $.ajax({
+      url: 'get_cart_item_count.php',
+      type: 'GET',
+      success: function (data) {
+          $('#cartItemCount').text(data);
+      },
+      error: function () {
+          console.log('Error fetching cart item count');
+      }
+  });
+}
+$(document).ready(function () {
+  updateCartItemCount();
+});

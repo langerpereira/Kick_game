@@ -32,7 +32,7 @@ if (isset($_POST['add_user'])) {
     <link rel="stylesheet" href="registration.css" />
   </head>
   <body>
-    <a href="index.html"><img src="./img/bot1.png" alt=""></a>
+    <a href="index.php"><img src="./img/bot1.png" alt=""></a>
 
     <div class="wrapper">
       <h2 style="color: aliceblue">Registration</h2>

@@ -30,10 +30,11 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   </head>
   <body>
 <div class="nav-bar">
-   <a href="index.html">
+   <a href="index.php">
       <span class="navItem">
         <img src="./img/bot1.png" alt="">
       </span>
@@ -45,7 +46,7 @@
                   <span></span>
                 </label>
                 <ul class="menu__box">
-                  <li><a class="menu__item" href="index.html">Home</a></li>
+                  <li><a class="menu__item" href="index.php">Home</a></li>
                   <li><a class="menu__item" href="login.php" style="color: rgb(0, 164, 0);"><?php session_start(); if(isset($_SESSION["username"])){echo $_SESSION["name"];}else{echo"Login";} ?></a></li>
                   <li><a class="menu__item" href="Registration.php">Register</a></li>
                   <li><a class="menu__item" href="product_airforce.php">shoes</a></li>
@@ -62,9 +63,14 @@
             </div>
             <div class="navItem">      
                 
-                <!-- <span>|</span>
-                <a href="Registration.php"><button class="limitedOffer">SIGN-UP</button></a> -->
-                <i class="fa fa-shopping-cart cart1" style="font-size:48px;color:green; z-index: 2;"></i>
+            <a class="icon" href="cart.php">    
+    <i class="fa fa-shopping-cart cart1" style="font-size:48px;color:goldenrod; position: fixed; z-index: 1030; right: 50px; top: -10px;">
+        <span style="font-size: 14px; position: absolute; top: 34px; left: 28px; background-color: red; color: white; border-radius: 50%; padding: 2px 5px;"><?php echo getCartItemCount(); ?></span>
+    </i>
+</a>
+
+
+
             </div>
         </div>
 </div>
@@ -136,25 +142,26 @@
                   </ul>
               </div>
           </div>
-          <div class="footerRight">
-              <div class="footerRightMenu">
-                  <h1 class="fMenuTitle">Subscribe to our newsletter</h1>
-                  <div class="fMail">
-                      <input type="text" placeholder="your@email.com" class="fInput">
-                      <button class="fButton">Join!</button>
-                  </div>
-              </div>
-              <div class="footerRightMenu">
-                  <h1 class="fMenuTitle">Follow Us</h1>
-                  <div class="fIcons">
-                      <img src="./img/facebook.png" alt="" class="fIcon">
-                      <img src="./img/twitter.png" alt="" class="fIcon">
-                      <img src="./img/instagram.png" alt="" class="fIcon">
-                      <img src="./img/whatsapp.png" alt="" class="fIcon">
-                  </div>
-              </div>
-          </div>
       </footer>
+
+      <script>
+   
+    function updateCartItemCount() {
+        $.ajax({
+            url: 'get_cart_item_count.php',
+            type: 'GET',
+            success: function (data) {
+                $('#cartItemCount').text(data);
+            },
+            error: function () {
+                console.log('Error fetching cart item count');
+            }
+        });
+    }
+    $(document).ready(function () {
+        updateCartItemCount();
+    });
+</script>
 
   </body>
 </html>

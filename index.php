@@ -57,12 +57,16 @@
             <div class="navItem">
                 <div class="search">
                     <input type="text" placeholder="Search..." class="searchInput">
-                    <img src="./img/search.png" width="20" height="20" alt="" class="searchIcon">
+                    <a href="product_airforce.php">
+                    <img src="./img/search.png" width="20" height="20" alt="" class="searchIcon" >
+                    </a>
                 </div>
             </div>
-                <a class="icon" href="cart.php">    
-                <i class="fa fa-shopping-cart cart1" style="font-size:48px;color:goldenrod; position: fixed; z-index: 1030; right: 50px; top: 8px;"></i>
-                </a>  
+            <a class="icon" href="cart.php">    
+    <i class="fa fa-shopping-cart cart1" style="font-size:48px;color:goldenrod; position: fixed; z-index: 1030; right: 50px; top: 10px;">
+        <span style="font-size: 14px; position: absolute; top: -8px; left: -12px; background-color: red; color: white; border-radius: 50%; padding: 2px 5px;"><?php echo getCartItemCount(); ?></span>
+    </i>
+</a> 
         </div>
         <div class="navBottom" style="color: #a28309;">
             <h3 class="menuItem">AIR FORCE</h3>
@@ -254,24 +258,6 @@
                     <li class="fListItem">Crater</li>
                     <li class="fListItem">Hippie</li>
                 </ul>
-            </div>
-        </div>
-        <div class="footerRight">
-            <div class="footerRightMenu">
-                <h1 class="fMenuTitle">Subscribe to our newsletter</h1>
-                <div class="fMail">
-                    <input type="text" placeholder="your@email.com" class="fInput">
-                    <button class="fButton">Join!</button>
-                </div>
-            </div>
-            <div class="footerRightMenu">
-                <h1 class="fMenuTitle">Follow Us</h1>
-                <div class="fIcons">
-                    <img src="./img/facebook.png" alt="" class="fIcon">
-                    <img src="./img/twitter.png" alt="" class="fIcon">
-                    <img src="./img/instagram.png" alt="" class="fIcon">
-                    <img src="./img/whatsapp.png" alt="" class="fIcon">
-                </div>
             </div>
         </div>
     </footer>
