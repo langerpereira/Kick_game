@@ -8,6 +8,11 @@
         echo "<script>alert('Logout Sucessfull')</script>";
         echo "<script>location.href='./login.php';</script>";
     }
+    if(isset($_GET['add_to_cart'])){
+       cartFunction();
+        echo "<script>alert('Item added successfully.')</script>";
+        echo "<script>location.href='./product_airforce.php';</script>";
+    }
 ?>
 
 

@@ -62,7 +62,11 @@
                 </label>
                 <ul class="menu__box">
                   <li><a class="menu__item" href="index.html">Home</a></li>
-                  <li><a class="menu__item" href="login.php" style="color: rgb(0, 164, 0);"><?php session_start(); if(isset($_SESSION["username"])){echo $_SESSION["name"];}else{echo"Login";} ?></a></li>
+                  <li><a class="menu__item" href="login.php" style="color: rgb(0, 164, 0);">
+                  <?php
+                   if(!isset($_SESSION))
+                   session_start(); 
+                   if(isset($_SESSION["username"])){echo $_SESSION["name"];}else{echo"Login";} ?></a></li>
                   <li><a class="menu__item" href="Registration.php">Register</a></li>
                   <li><a class="menu__item" href="product_airforce.php">shoes</a></li>
                   <li><a class="menu__item" href="clothing.html">clothing</a></li>

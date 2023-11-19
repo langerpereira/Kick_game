@@ -7,6 +7,7 @@ function getProducts()
     $select_query ="select * from `product`";
     $result_query = mysqli_query($conn, $select_query);
     while($row_data = mysqli_fetch_assoc($result_query)){
+        $product_id = $row_data["p_id"];
         $product_pic = $row_data["p_pic"];
         $product_name = $row_data["p_name"];
         $product_price = $row_data["p_price"];
@@ -19,7 +20,7 @@ function getProducts()
           <span>$product_name</span>
           <h4 style='color: blanchedalmond'>RS $product_price</h4>
         </div>
-        <a href='index.php?add_to_cart=$product_id'>
+        <a href='product_airforce.php?add_to_cart=$product_id'>
           <i class='fa fa-shopping-cart cart' style='font-size: 24px'></i>
         </a>
       </div>
@@ -37,7 +38,7 @@ function cartFunction()
             $customer_id = $_SESSION['cid'];
             $product_id = $_GET['add_to_cart'];
             $select_query = "select * from `cart` where c_id=$customer_id AND p_id=$product_id";
-            $result_query = mysqli_query($conn, $select_query);
+            $result_query = mysqli_query($conn,$select_query);
             $num_of_rows = mysqli_num_rows($result_query);
             if ($num_of_rows > 0) {
                 echo "<script>alert('This item is present inside the cart')</script>";

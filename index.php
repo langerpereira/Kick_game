@@ -87,7 +87,7 @@
                 <img src="./img/jordan.png" alt="" class="sliderImg">
                 <div class="sliderBg"></div>
                 <h1 class="sliderTitle">AIR JORDAN</br> NEW</br> SEASON</h1>
-                <h2 class="sliderPrice  style="color: black;">Rs14,999</h2>
+                <h2 class="sliderPrice"  style="color": black;>Rs14,999</h2>
                 <a href="#product">
                     <button class="buyButton">BUY NOW!</button>
                 </a>
