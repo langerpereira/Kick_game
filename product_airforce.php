@@ -6,6 +6,11 @@
         session_unset();
         session_destroy();
         echo "<script>alert('Logout Sucessfull')</script>";
+        echo "<script>location.href='./login.php';</script>";
+    }
+    if(isset($_GET['add_to_cart'])){
+       cartFunction();
+        echo "<script>alert('Item added successfully.')</script>";
         echo "<script>location.href='./product_airforce.php';</script>";
     }
 ?>
@@ -20,7 +25,7 @@
     <link rel="stylesheet" href="product1.css" />
     <link
     href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Old+Standard+TT&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css"/>
+    <!-- <link rel="stylesheet" href="style.css"/> -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -41,13 +46,12 @@
                 </label>
                 <ul class="menu__box">
                   <li><a class="menu__item" href="index.html">Home</a></li>
-                  <li><a class="menu__item" href="login.php"><?php session_start(); if(isset($_SESSION["username"])){echo $_SESSION["name"];}else{echo"Login";} ?></a></li>
+                  <li><a class="menu__item" href="login.php" style="color: rgb(0, 164, 0);"><?php session_start(); if(isset($_SESSION["username"])){echo $_SESSION["name"];}else{echo"Login";} ?></a></li>
                   <li><a class="menu__item" href="Registration.php">Register</a></li>
                   <li><a class="menu__item" href="product_airforce.php">shoes</a></li>
                   <li><a class="menu__item" href="clothing.html">clothing</a></li>
-                  <li><a class="menu__item" href="#">support</a></li>
-                  <li><a class="menu_item"  href="login.php?logout" name="logout">Log Out</a></li>
-                </ul>
+                  <li><a class="menu__item" href="./support.html">support</a></li>
+                  <li><a class="menu__item" href="login.php?logout" name="logout" style="color: red;">Log Out</a></li>
               </div>
 
             <div class="navItem">
@@ -60,7 +64,7 @@
                 
                 <!-- <span>|</span>
                 <a href="Registration.php"><button class="limitedOffer">SIGN-UP</button></a> -->
-                <i class="fa fa-shopping-cart cart1" style="font-size:48px;color:green"></i>
+                <i class="fa fa-shopping-cart cart1" style="font-size:48px;color:green; z-index: 2;"></i>
             </div>
         </div>
 </div>
@@ -154,3 +158,4 @@
 
   </body>
 </html>
+ 

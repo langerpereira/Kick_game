@@ -1,3 +1,17 @@
+<?php
+    include("./includes/connect.php");
+    include("./common_functions/common_functions.php");
+    if(isset($_GET['logout'])){
+        session_start();
+        session_unset();
+        session_destroy();
+        echo "<script>alert('Logout Sucessfull')</script>";
+        echo "<script>location.href='./login.php';</script>";
+    }
+    if(isset($_GET['add_to_cart'])){
+        cartFunction();
+    }
+?>
 
 <html lang="en">
 
@@ -12,6 +26,8 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" crossorigin="anonymous">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <title>KicK Game</title>
 <body>    
     <nav id="nav" >
@@ -27,11 +43,14 @@
                 </label>
                 <ul class="menu__box">
                   <li><a class="menu__item" href="index.html">Home</a></li>
-                  <li><a class="menu__item" href="login.php">Login </a></li>
+                  <li><a class="menu__item" href="login.php" style="color: rgb(0, 164, 0);>Login </a></li><?php session_start(); if(isset($_SESSION["username"])){echo $_SESSION["name"];}else{echo"Login";} ?></a></li>
                   <li><a class="menu__item" href="Registration.php">Register</a></li>
                   <li><a class="menu__item" href="product_airforce.php">shoes</a></li>
                   <li><a class="menu__item" href="clothing.html">clothing</a></li>
-                  <li><a class="menu__item" href="#">support</a></li>
+                  <li><a class="menu__item" href="support.html">support</a></li>
+                  <li><i class="'far'>&#xf2bd" style="font-size:40px; color:red;"></i>
+        <a class="nav-link" href=""> Welcome
+            <?php if(isset($_SESSION["username"])){echo $_SESSION["name"]."<a href='index.php?logout'><button class='ms-3 btn btn-danger text-center' name='logout'>Logout</button></a>";}else{echo"Guest";} ?></a></li>
                 </ul>
               </div>
 
@@ -41,12 +60,9 @@
                     <img src="./img/search.png" width="20" height="20" alt="" class="searchIcon">
                 </div>
             </div>
-            <div class="navItem">      
-                <a href="login.php"><button class="limitedOffer"><span>LOG IN</span></button></a>
-                <span>|</span>
-                <a href="Registration.php"><button class="limitedOffer">SIGN-UP</button></a>
-                <i class="fa fa-shopping-cart cart1" style="font-size:48px;color:green"></i>
-            </div>
+                <a class="icon" href="cart.php">    
+                <i class="fa fa-shopping-cart cart1" style="font-size:48px;color:goldenrod; position: fixed; z-index: 1030; right: 50px; top: 8px;"></i>
+                </a>  
         </div>
         <div class="navBottom" style="color: #a28309;">
             <h3 class="menuItem">AIR FORCE</h3>
@@ -71,7 +87,7 @@
                 <img src="./img/jordan.png" alt="" class="sliderImg">
                 <div class="sliderBg"></div>
                 <h1 class="sliderTitle">AIR JORDAN</br> NEW</br> SEASON</h1>
-                <h2 class="sliderPrice  style="color: black;">Rs14,999</h2>
+                <h2 class="sliderPrice"  style="color": black;>Rs14,999</h2>
                 <a href="#product">
                     <button class="buyButton">BUY NOW!</button>
                 </a>
