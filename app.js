@@ -136,8 +136,6 @@ currentProductSizes.forEach((size, index) => {
 //   payment.style.display = "none";
 // });
 
-
-
 function updateCartItemCount() {
   $.ajax({
       url: 'get_cart_item_count.php',

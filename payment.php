@@ -174,10 +174,12 @@ if (isset($_SESSION['cid'])) {
             background-color: #343a40;
             margin-bottom: 8%;
         }
+
     </style>
 
     <title>Payment</title>
 </head>
+
 
 <div class="navTop">
         <a href="index.php">
