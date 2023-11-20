@@ -1,31 +1,34 @@
 <?php
 include('../includes/connect.php');
+
 if (isset($_POST['add_product'])) {
-  $shoe_name = $_POST['mname'];
-  $shoe_seller = $_POST['sid'];
-  $shoe_brand = $_POST['bid'];
-  $shoe_price = $_POST['mprice'];
+    $shoe_name = mysqli_real_escape_string($conn, $_POST['mname']);
+    $shoe_seller = mysqli_real_escape_string($conn, $_POST['sid']);
+    $shoe_brand = mysqli_real_escape_string($conn, $_POST['bid']);
+    $shoe_price = mysqli_real_escape_string($conn, $_POST['mprice']);
 
     $shoe_pic = $_FILES['mimage']['name'];
     $temp_shoe_pic = $_FILES['mimage']['tmp_name'];
 
-    if($shoe_name==''  or $shoe_seller=='' or $shoe_brand=='' or $shoe_price=='' or $shoe_pic==''){
+    if (empty($shoe_name) || empty($shoe_seller) || empty($shoe_brand) || empty($shoe_price) || empty($shoe_pic)) {
         echo "<script>alert('Please fill all the available fields')</script>";
         exit();
-    }
-    else{
-        move_uploaded_file($temp_shoe_pic,"../assets/Shoes/$shoe_pic");
-        
-        $insert_query = "insert into `product`(p_name,p_price,s_id,p_pic,b_id) values ('$shoe_name','$shoe_price',$shoe_seller,'$shoe_pic',$shoe_brand)";              
-        $result_query = mysqli_query($conn,$insert_query);
-        if($result_query){
-            echo "<script>alert('shoe Added Successfully')</script>";
+    } else {
+        move_uploaded_file($temp_shoe_pic, "../assets/Shoes/$shoe_pic");
+
+        $insert_query = "INSERT INTO `product` (p_name, p_price, s_id, p_pic, b_id) VALUES ('$shoe_name', '$shoe_price', '$shoe_seller', '$shoe_pic', '$shoe_brand')";
+        $result_query = mysqli_query($conn, $insert_query);
+
+        if ($result_query) {
+            echo "<script>alert('Shoe Added Successfully')</script>";
+            echo "<script>location.href='./index.php?add_product&success';</script>";
+        } else {
+            echo "<script>alert('Error Adding Shoe')</script>";
         }
     }
-
-    echo "<script>location.href='./index.php?add_product';</script>";
 }
 ?>
+
 <style>
 body{
   background-color: rgb(104, 15, 15);

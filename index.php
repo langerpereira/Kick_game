@@ -57,12 +57,16 @@
             <div class="navItem">
                 <div class="search">
                     <input type="text" placeholder="Search..." class="searchInput">
-                    <img src="./img/search.png" width="20" height="20" alt="" class="searchIcon">
+                    <a href="product_airforce.php">
+                    <img src="./img/search.png" width="20" height="20" alt="" class="searchIcon" >
+                    </a>
                 </div>
             </div>
-                <a class="icon" href="cart.php">    
-                <i class="fa fa-shopping-cart cart1" style="font-size:48px;color:goldenrod; position: fixed; z-index: 1030; right: 50px; top: 8px;"></i>
-                </a>  
+            <a class="icon" href="cart.php">    
+    <i class="fa fa-shopping-cart cart1" style="font-size:48px;color:goldenrod; position: fixed; z-index: 1030; right: 50px; top: 10px;">
+        <span style="font-size: 14px; position: absolute; top: -8px; left: -12px; background-color: red; color: white; border-radius: 50%; padding: 2px 5px;"><?php echo getCartItemCount(); ?></span>
+    </i>
+</a> 
         </div>
         <div class="navBottom" style="color: #a28309;">
             <h3 class="menuItem">AIR FORCE</h3>
@@ -163,27 +167,94 @@
             <button class="productButton">BUY NOW!</button>
            <a href="product_airforce.php"> <button class="productButton">EXPLORE</button></a>
         </div>
-        <div class="payment">
-            <h1 class="payTitle">Personal Information</h1>
-            <label>Name and Surname</label>
-            <input type="text" placeholder="John Doe" class="payInput">
-            <label>Phone Number</label>
-            <input type="text" placeholder="+1 234 5678" class="payInput">
-            <label>Address</label>
-            <input type="text" placeholder="Elton St 21 22-145" class="payInput">
-            <h1 class="payTitle">Card Information</h1>
-            <div class="cardIcons">
-                <img src="./img/visa.png" width="40" alt="" class="cardIcon">
-                <img src="./img/master.png" alt="" width="40" class="cardIcon">
+
+
+        <div class="payment" style="max-height:100%; overflow:auto; border:1px solid red;">
+
+    <div class="container" style="background-color: aliceblue; max-width: 500px; padding: 20px; position: relative;">
+
+        <a class="go-back-link" href="#" onclick="history.back();"><i class="bi bi-arrow-left-square"></i> Go back</a>
+
+        <div class="qr">
+            <img src="assets/shoes/qr.jpg" alt="qr" style="border: 1px solid #ddd; border-radius: 4px; padding: 5px; width: 100%;">
+        </div>
+
+        <button type="button" class="close-btn" onclick="closeContainer()">&times;</button>
+
+        <form method="POST" action="add_order.php" class="form-floating" style="background-color: aliceblue;">
+
+            <h2><i class="bi bi-qr-code-scan"></i> Payment Details</h2>
+
+            <div class="transaction-details">
+                <h3>Grand Total</h3>
+                <?php
+                if (!isset($_SESSION)) {
+                    session_start();
+                }
+                if (isset($_SESSION['username'])) {
+                    $c_id = $_SESSION['cid'];
+                    $select_products_query = "SELECT * FROM cart INNER JOIN product ON product.p_id = cart.p_id INNER JOIN customer ON customer.c_id = cart.c_id WHERE cart.c_id = $c_id;";
+                    $result_products_query = mysqli_query($conn, $select_products_query);
+                    $totalPrice = 0;
+                    $items = 0;
+                    while ($cartData = mysqli_fetch_assoc($result_products_query)) {
+                        $price = $cartData['p_price'];
+                        $qty = $cartData['buy_qty'];
+                        $totalPrice = $totalPrice + ($price * $qty);
+                    }
+                    printf("<h4>Rs %.2f</h4>", $totalPrice);
+                }
+                ?>
             </div>
-            <input type="password" class="payInput" placeholder="Card Number">
-            <div class="cardInfo">
-                <input type="text" placeholder="mm" class="payInput sm">
-                <input type="text" placeholder="yyyy" class="payInput sm">
-                <input type="text" placeholder="cvv" class="payInput sm">
+
+            <?php
+            if (!isset($_SESSION)) {
+                session_start();
+            }
+            if (isset($_SESSION['username'])) {
+                echo "<h4>Name : {$_SESSION['username']}</h4>
+                    <h4>Email : {$_SESSION['email']}</h4>
+                    <h4>Address : {$_SESSION['address']}</h4>";
+            }
+            ?>
+
+<div class="form-floating mt-5 mb-2">
+                <input type="text" class="form-control" id="tid" name="tid" minlength="12" maxlength="45" required>
+                <label for="transactionid">Transaction Id</label>
             </div>
-            <button class="payButton">Checkout!</button>
-            <span class="close">X</span>
+
+            <div class="form-floating">
+                <div class="mb-2 form-check">
+                    <input type="checkbox" class="form-check-input" id="tandc" name="tandc" required>
+                    <label class="form-check-label small" for="tandc">I agree to the terms and conditions and the
+                        privacy policy</label>
+                </div>
+            </div>
+
+            <button class="w-100 btn btn-success mb-3" name='addorder' type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+
+<style>
+    .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 20px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        outline: none;
+    }
+</style>
+
+<script>
+     function closeContainer() {
+        document.querySelector('.payment').style.display = 'none';
+    }
+</script>
+
         </div>
     </div>
     <div class="gallery">
@@ -254,24 +325,6 @@
                     <li class="fListItem">Crater</li>
                     <li class="fListItem">Hippie</li>
                 </ul>
-            </div>
-        </div>
-        <div class="footerRight">
-            <div class="footerRightMenu">
-                <h1 class="fMenuTitle">Subscribe to our newsletter</h1>
-                <div class="fMail">
-                    <input type="text" placeholder="your@email.com" class="fInput">
-                    <button class="fButton">Join!</button>
-                </div>
-            </div>
-            <div class="footerRightMenu">
-                <h1 class="fMenuTitle">Follow Us</h1>
-                <div class="fIcons">
-                    <img src="./img/facebook.png" alt="" class="fIcon">
-                    <img src="./img/twitter.png" alt="" class="fIcon">
-                    <img src="./img/instagram.png" alt="" class="fIcon">
-                    <img src="./img/whatsapp.png" alt="" class="fIcon">
-                </div>
             </div>
         </div>
     </footer>

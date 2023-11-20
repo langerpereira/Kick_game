@@ -124,14 +124,32 @@ currentProductSizes.forEach((size, index) => {
   });
 });
 
-const productButton = document.querySelector(".productButton");
-const payment = document.querySelector(".payment");
-const close = document.querySelector(".close");
+// const productButton = document.querySelector(".productButton");
+// const payment = document.querySelector(".payment");
+// const close = document.querySelector(".close");
 
-productButton.addEventListener("click", () => {
-  payment.style.display = "flex";
-});
+// productButton.addEventListener("click", () => {
+//   payment.style.display = "flex";
+// });
 
-close.addEventListener("click", () => {
-  payment.style.display = "none";
+// close.addEventListener("click", () => {
+//   payment.style.display = "none";
+// });
+
+
+
+function updateCartItemCount() {
+  $.ajax({
+      url: 'get_cart_item_count.php',
+      type: 'GET',
+      success: function (data) {
+          $('#cartItemCount').text(data);
+      },
+      error: function () {
+          console.log('Error fetching cart item count');
+      }
+  });
+}
+$(document).ready(function () {
+  updateCartItemCount();
 });
