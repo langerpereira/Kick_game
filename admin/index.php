@@ -1,3 +1,24 @@
+<?php
+    if ( ! isset($_SESSION))
+    session_start();
+    include("../includes/connect.php");
+    include("../common_functions/common_functions.php");
+    if(isset($_GET['logout'])){
+        if ( ! isset($_SESSION))
+        session_start();
+        session_unset();
+        session_destroy();
+        echo "<script>alert('Logout Sucessfull')</script>";
+        echo "<script>location.href='./admin_login.php';</script>";
+    }
+    if (isset($_SESSION['emp_uname'])) {
+        echo " ";
+    }
+    else{
+        echo "<script>alert('Please Login')</script>";
+        echo "<script>location.href='./admin_login.php';</script>";
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -111,26 +132,10 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-dark ">
             <div class="container-fluid">
                 <img src="./bot1.png" alt="Logo" class="logo">
-
-                <div class="hamburger-menu">
-                    <input id="menu__toggle" type="checkbox" />
-                    <label class="menu__btn" for="menu__toggle">
-                      <span></span>
-                    </label>
-                    <ul class="menu__box">
-                      <li><a class="menu__item" href="index.html">Home</a></li>
-                      <li><a class="menu__item" href="login.php">Login</a></li>
-                      <li><a class="menu__item" href="Registration.php">Register</a></li>
-                      <li><a class="menu__item" href="product_airforce.php">shoes</a></li>
-                      <li><a class="menu__item" href="clothing.html">clothing</a></li>
-                      <li><a class="menu__item" href="#">support</a></li>
-                    </ul>
-                  </div>
-
                 <nav class="navbar navbar-expand-lg">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a href="" class="nav-link text-white">Welcome Guest</a>
+                            <a href="" class="nav-link text-white"><?php if(!isset($_SESSION["emp_uname"])) {session_start();} if(isset($_SESSION["emp_uname"])){echo $_SESSION["emp_name"];}else{echo"Login";} ?></a>
                         </li>
                     </ul>
                 </nav>
@@ -143,19 +148,18 @@
 
         <div class="row pb-2 bg-secondary text-white ">
             <div class="col-md-12 p-3 mb-2 bg-dark text-white d-flex flex-column align-items-center gap-4 pt-4">
-                <h5 class="text-center">Langer Pereira</h5>
                 <div class="button text-center d-flex gap-4">
                     <button class="bg-secondary text-white"><a href="./index.php?add_product" class="nav-link text-light bg-secondary text-white p-2 rounded border border-light">Add Shoe</a></button>
                     <button class="bg-secondary text-white"><a href="view_product.php" class="nav-link text-light bg-secondary text-white p-2 rounded border border-light">View Shoes</a></button>
                     <button class="bg-secondary text-white"><a href="./index.php?add_supplier" class="nav-link text-light bg-secondary text-white p-2 rounded border border-light">Add
-                            Seller</a></button>
-                    <button class="bg-secondary text-white"><a href="view_seller.php" class="nav-link text-light bg-secondary text-white p-2 rounded border border-light">View Sellers</a></button>
+                            Supplier</a></button>
+                    <button class="bg-secondary text-white"><a href="view_Supplier.php" class="nav-link text-light bg-secondary text-white p-2 rounded border border-light">View Suppliers</a></button>
                     <button class="bg-secondary text-white"><a href="./index.php?add_brand" class="nav-link text-light bg-secondary text-white p-2 rounded border border-light">Add Brand</a></button>
                     <button class="bg-secondary text-white"><a href="view_brand.php" class="nav-link text-light bg-secondary text-white p-2 rounded border border-light">View Brands</a></button>
-                    <button class="bg-secondary text-white"><a href="" class="nav-link text-light bg-secondary text-white p-2 rounded border border-light">All Orders</a></button>
-                    <button class="bg-secondary text-white"><a href="" class="nav-link text-light bg-secondary text-white p-2 rounded border border-light">All Payments</a></button>
-                    <button class="bg-secondary text-white"><a href="" class="nav-link text-light bg-secondary text-white p-2 rounded border border-light">List Users</a></button>
-                    <button class="bg-danger"><a href="" class="nav-link text-light bg-danger p-2 rounded border border-danger">Logout</a></button>
+                    <button class="bg-secondary text-white"><a href="view_orders.php" class="nav-link text-light bg-secondary text-white p-2 rounded border border-light">All Orders</a></button>
+                    <button class="bg-secondary text-white"><a href="view_payment.php" class="nav-link text-light bg-secondary text-white p-2 rounded border border-light">All Payments</a></button>
+                    <button class="bg-secondary text-white"><a href="list_users.php" class="nav-link text-light bg-secondary text-white p-2 rounded border border-light">List Users</a></button>
+                    <button class="bg-danger"><a href="index.php?logout" class="nav-link text-light bg-danger p-2 rounded border border-danger">Logout</a></button>
                 </div>
             </div>
         </div>

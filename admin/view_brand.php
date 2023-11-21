@@ -68,7 +68,7 @@ if (isset($_POST['update_quantity'])) {
                                         <div class="col-11">
                                             <h6>Name</h6>
                                         </div>
-                                        <div class="col-1">
+                                        <div class="col-0">
                                             <h6>Remove</h6>
                                         </div>
                                     </div>
