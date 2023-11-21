@@ -46,6 +46,7 @@
                   <li><a class="menu__item" href="index.php">Home</a></li>
                   <li><a class="menu__item" href="login.php" style="color: rgb(0, 164, 0);"><?php session_start(); if(isset($_SESSION["username"])){echo 'Welcome ' .$_SESSION["name"];}else{echo"Login";} ?></a></li>
                   <li><a class="menu__item" href="Registration.php">Register</a></li>
+                  <li><a class="menu__item" href="orders.php">my orders</a></li>
                   <li><a class="menu__item" href="product_airforce.php">shoes</a></li>
                   <li><a class="menu__item" href="clothing.html">clothing</a></li>
                   <li><a class="menu__item" href="./support.html">support</a></li>            
@@ -54,13 +55,13 @@
                 </ul>
               </div>
 
-            <div class="navItem">
-                <div class="search">
-                    <input type="text" placeholder="Search..." class="searchInput">
-                    <a href="product_airforce.php">
+              <div class="navItem">
+                <form class="search" action="search_product.php" method="get">
+                    <input type="text" placeholder="Search..." class="searchInput" name="keyword">
+                    <button name="search_product" type="submit" style="background-color: grey; font-size: 2px;">
                     <img src="./img/search.png" width="20" height="20" alt="" class="searchIcon" >
-                    </a>
-                </div>
+                    </button>
+                </form>
             </div>
             <a class="icon" href="cart.php">    
     <i class="fa fa-shopping-cart cart1" style="font-size:48px;color:goldenrod; position: fixed; z-index: 1030; right: 50px; top: 10px;">

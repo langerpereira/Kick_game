@@ -151,6 +151,7 @@
                 <div class="button text-center d-flex gap-4">
                     <button class="bg-secondary text-white"><a href="./index.php?add_product" class="nav-link text-light bg-secondary text-white p-2 rounded border border-light">Add Shoe</a></button>
                     <button class="bg-secondary text-white"><a href="view_product.php" class="nav-link text-light bg-secondary text-white p-2 rounded border border-light">View Shoes</a></button>
+                    <button class="bg-secondary text-white"><a href="remove_product.php" class="nav-link text-light bg-secondary text-white p-2 rounded border border-light">Remove Shoe</a></button>
                     <button class="bg-secondary text-white"><a href="./index.php?add_supplier" class="nav-link text-light bg-secondary text-white p-2 rounded border border-light">Add
                             Supplier</a></button>
                     <button class="bg-secondary text-white"><a href="view_Supplier.php" class="nav-link text-light bg-secondary text-white p-2 rounded border border-light">View Suppliers</a></button>

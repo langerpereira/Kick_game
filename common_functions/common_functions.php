@@ -81,6 +81,36 @@ function cartFunction()
     }
 }
 
+function searchProducts()
+{
+    global $conn;
+    if (isset($_GET['search_product'])) {
+        $key = $_GET['keyword'];
+        $select_query = "select * from `product` where p_name like '%$key%'";
+        $result_query = mysqli_query($conn, $select_query);
+        $num_rows = mysqli_num_rows($result_query);
+        if ($num_rows > 0) {
+            while ($row_data = mysqli_fetch_assoc($result_query)) {
+                $product_id = $row_data['p_id'];
+                $product_pic = $row_data['p_pic'];
+                $product_name = $row_data['p_name'];
+                $product_price = $row_data['p_price'];
+                echo "
+        <div class='pro' style='margin-right: 20px;'> <!-- Add margin for spacing -->
+            <img src='./assets/Shoes/$product_pic' />
+            <div class='des'>
+                <span>$product_name</span>
+                <h4 style='color: blanchedalmond'>RS $product_price</h4>
+            </div>
+            <a href='product_airforce.php?add_to_cart=$product_id'>
+                <i class='fa fa-shopping-cart cart' style='font-size: 24px'></i>
+            </a>
+        </div>
+        ";
+            }
+        } 
+    }
+}
 
 function getCartProducts()
 {
@@ -187,6 +217,53 @@ function getCartItemCount() {
   }
 
   return 0;
+}
+
+function getOrderProducts(){
+    global $conn;
+    if (isset($_SESSION['username'])) {
+        $c_id = $_SESSION['cid'];
+        $select_products_query = "SELECT o.od_id, o.od_date, 
+            SUM(od.quantity * od.price) AS od_price, 
+            p.txn_id 
+        FROM orders o
+        INNER JOIN orderpayment op ON op.od_id = o.od_id
+        INNER JOIN payment p ON p.pt_id = op.pt_id
+        INNER JOIN orders od ON od.od_id = o.od_id
+        WHERE o.c_id = $c_id
+        GROUP BY o.od_id
+        ORDER BY o.od_id DESC;";
+        $result_products_query = mysqli_query($conn, $select_products_query);
+        while ($cartData = mysqli_fetch_assoc($result_products_query)) {
+           
+            $order_id = $cartData['od_id'];
+            $order_date = $cartData['od_date'];
+            $order_price = $cartData['od_price']; // Calculated dynamically based on quantity and price
+            $txn_id = $cartData['txn_id'];
+
+            echo "<div class='row mb-4 d-flex justify-content-between align-items-center'>
+            <div class='col-2'>
+              <h6 class='text-black mb-0'>$order_id</h6>
+            </div>
+            <div class='col-3'>
+              <h6 class='text-black mb-0'>$order_date</h6>
+            </div>
+            <div class='col-2 '>
+              <h6 class='mb-0'>Rs $order_price</h6>
+            </div>
+            <div class='col-3'>
+              <h6 class='text-black mb-0'>$txn_id</h6>
+            </div>
+            <div class='col-2'>
+                <a href='order_details.php?view_order_details=$order_id'>
+                    <button class='btn btn-dark px-2' name='view_od_details'>View Details</button>
+                </a>
+            </div>
+          </div>
+
+          <hr class='my-4'>";
+        }
+    }
 }
 
 

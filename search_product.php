@@ -57,7 +57,7 @@
                 </ul>
               </div>
 
-            <div class="navItem">
+              <div class="navItem">
                 <form class="search" action="search_product.php" method="get">
                     <input type="text" placeholder="Search..." class="searchInput" name="keyword">
                     <button name="search_product" type="submit" style="background-color: grey; font-size: 2px;">
@@ -91,8 +91,7 @@
       <p style="color: grey">Shoes</p>
       <div class="pro-container">
         <?php
-          
-             getProducts();
+             searchProducts();
         ?>
         
         

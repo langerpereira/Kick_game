@@ -40,7 +40,7 @@ body{
     width: 100%;
   }
 </style>
-<form action="" method="post" class="form1" enctype="multipart/form-data" style="background-image: url('https://i.postimg.cc/W41D8j0x/66372.jpg');">
+<form action="" method="post" class="form1" enctype="multipart/form-data" style="background-image: url('https://i.postimg.cc/W41D8j0x/66372.jpg'); ">
     <h3>Add shoes</h3>
     <div class="mb-3">
         <label for="InputUMname1" class="form-label ">shoe Name</label>
