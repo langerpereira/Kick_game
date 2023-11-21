@@ -24,7 +24,7 @@ $user_pass = $_POST['upass'];
       $_SESSION['address']=$db_data['c_add'];
       $_SESSION['cid']=$db_data['c_id'];
       $_SESSION['email']=$db_data['c_email'];
-      echo "<script>location.href='./product_airforce.php';</script>";
+      echo "<script>location.href='./index.php';</script>";
       
     }else{
       echo "<script>alert('Invalid Email or password')</script>";

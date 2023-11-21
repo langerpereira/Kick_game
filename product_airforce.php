@@ -47,12 +47,14 @@
                 </label>
                 <ul class="menu__box">
                   <li><a class="menu__item" href="index.php">Home</a></li>
-                  <li><a class="menu__item" href="login.php" style="color: rgb(0, 164, 0);"><?php session_start(); if(isset($_SESSION["username"])){echo $_SESSION["name"];}else{echo"Login";} ?></a></li>
+                  <li><a class="menu__item" href="login.php" style="color: rgb(0, 164, 0);"><?php session_start(); if(isset($_SESSION["username"])){echo'Welcome '. $_SESSION["name"];}else{echo"Login";} ?></a></li>
                   <li><a class="menu__item" href="Registration.php">Register</a></li>
-                  <li><a class="menu__item" href="product_airforce.php">shoes</a></li>
-                  <li><a class="menu__item" href="clothing.html">clothing</a></li>
-                  <li><a class="menu__item" href="./support.html">support</a></li>
-                  <li><a class="menu__item" href="login.php?logout" name="logout" style="color: red;">Log Out</a></li>
+                  <li><a class="menu__item" href="product_airforce.php">Shoes</a></li>
+                  <li><a class="menu__item" href="clothing.html">Clothing</a></li>
+                  <li><a class="menu__item" href="./support.html">Support</a></li>
+                  <a class="nav-link" href="">
+                  <?php if(isset($_SESSION["username"])){echo"<a href='index.php?logout'><li><a class='menu__item' href='product_airforce.php?logout' name='logout' style='color: red;' >Log Out</a></li></a>";}else{echo" Welcome Guest";} ?></a></li>
+                </ul>
               </div>
 
             <div class="navItem">

@@ -83,7 +83,7 @@ if (isset($_POST['update_quantity'])) {
                                    $customer_email = $rowData['c_email'];
                                    $order_id = $rowData['od_id'];
                                    $order_date = $rowData['od_date'];
-                                   $order_price = $rowData['od_price'];
+
                            
                                    echo "<div class='row mb-4 d-flex justify-content-between align-items-center'>
                                        
