@@ -223,9 +223,7 @@ function getOrderProducts(){
     global $conn;
     if (isset($_SESSION['username'])) {
         $c_id = $_SESSION['cid'];
-        $select_products_query = "SELECT o.od_id, o.od_date, 
-            SUM(od.quantity * od.price) AS od_price, 
-            p.txn_id 
+        $select_products_query = "SELECT o.od_id, o.od_date, o.od_price, p.txn_id 
         FROM orders o
         INNER JOIN orderpayment op ON op.od_id = o.od_id
         INNER JOIN payment p ON p.pt_id = op.pt_id
@@ -234,36 +232,53 @@ function getOrderProducts(){
         GROUP BY o.od_id
         ORDER BY o.od_id DESC;";
         $result_products_query = mysqli_query($conn, $select_products_query);
+
         while ($cartData = mysqli_fetch_assoc($result_products_query)) {
-           
             $order_id = $cartData['od_id'];
             $order_date = $cartData['od_date'];
-            $order_price = $cartData['od_price']; // Calculated dynamically based on quantity and price
+            $order_price = $cartData['od_price']; // Assuming this is the total price for the order
             $txn_id = $cartData['txn_id'];
 
-            echo "<div class='row mb-4 d-flex justify-content-between align-items-center'>
-            <div class='col-2'>
-              <h6 class='text-black mb-0'>$order_id</h6>
-            </div>
-            <div class='col-3'>
-              <h6 class='text-black mb-0'>$order_date</h6>
-            </div>
-            <div class='col-2 '>
-              <h6 class='mb-0'>Rs $order_price</h6>
-            </div>
-            <div class='col-3'>
-              <h6 class='text-black mb-0'>$txn_id</h6>
-            </div>
-            <div class='col-2'>
-                <a href='order_details.php?view_order_details=$order_id'>
-                    <button class='btn btn-dark px-2' name='view_od_details'>View Details</button>
-                </a>
-            </div>
-          </div>
-
-          <hr class='my-4'>";
+            echo "
+            <div class='row mb-4'>
+                <div class='col-md-2'>
+                    <div class='card'>
+                        <div class='card-body'>
+                            <h6 class='text-black mb-0'>$order_id</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class='col-md-3'>
+                    <div class='card'>
+                        <div class='card-body'>
+                            <h6 class='text-black mb-0'>$order_date</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class='col-md-2'>
+                    <div class='card'>
+                        <div class='card-body'>
+                            <h6 class='mb-0'>Rs $order_price</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class='col-md-3'>
+                    <div class='card'>
+                        <div class='card-body'>
+                            <h6 class='text-black mb-0'>$txn_id</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class='col-md-2'>
+                    <div class='card'>
+                        <div class='card-body'>
+                            <a href='orders.php?view_orders=$order_id'>
+                                <button class='btn btn-dark px-2' name='view_od_details'>View Details</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>";
         }
     }
 }
-
-
