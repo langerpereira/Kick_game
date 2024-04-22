@@ -1,11 +1,38 @@
 ﻿# kick_game
+
 <!-- Project Logo and Badges -->
 <p align="center">
   <img src="./img/bot1.png" alt="Project Logo" width="200" height="200">
 </p>
 <!-- Project Logo and Badges -->
 <p align="center">
-   <img src=".\img\Screenshot(200).png">
+   <img src="img\Screenshot (200).png">
+</p>
+
+<p align="center">
+   <img src="img\Screenshot (201).png">
+</p>
+
+<p align="center">
+   <img src="img\Screenshot (202).png">
+</p>
+
+<p align="center">
+   <img src="img\Screenshot (203).png">
+</p>
+
+<p align="center">
+   <img src="img\Screenshot (204).png">
+</p>
+
+<p align="center">
+   <img src="img\Screenshot (205).png">
+</p>
+<p align="center">
+   <img src="img\Screenshot (206).png">
+</p>
+<p align="center">
+   <img src="img\Screenshot (207).png">
 </p>
 
 <p align="center">
@@ -20,6 +47,7 @@
 </p>
 
 <!-- Table of Contents -->
+
 ## Table of Contents
 
 - [Features](#-features)
@@ -30,6 +58,7 @@
 - [Contact](#-contact)
 
 <!-- Features Section -->
+
 ## 🚀 Features
 
 - **Awesome Feature 1:** Working admin pannel with the feature to add aproducts ,suppiler and brand ,and also remove them.
@@ -37,6 +66,7 @@
 - ...
 
 <!-- Installation Section -->
+
 ##️ 🛠️ Installation
 
 Make installation a breeze with easy-to-follow steps:
@@ -56,3 +86,4 @@ Product images included in the img folder are downloaded from nike.com. Copyrigh
 ##️ 🛠️ contact
 langerpereira12@gmail.com
 patric
+```
