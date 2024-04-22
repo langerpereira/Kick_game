@@ -5,7 +5,7 @@
 </p>
 <!-- Project Logo and Badges -->
 <p align="center">
-  <img src="./img/[Screenshot(200).png](https://github.com/langerpereira/kick_game/blob/main/img/Screenshot%20(202).png)">
+  <img src="./img/[Screenshot(200).png]">
 </p>
 
 <p align="center">
