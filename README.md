@@ -6,7 +6,7 @@
 ﻿# kick_game
 <!-- Project Logo and Badges -->
 <p align="center">
-  <img src="./img/Screenshot(200).png"" alt="Project Logo" width="200" height="200">
+  <img src="./img/Screenshot(200).png" width="200" height="200">
 </p>
 
 <p align="center">
