@@ -3,10 +3,9 @@
 <p align="center">
   <img src="./img/bot1.png" alt="Project Logo" width="200" height="200">
 </p>
-﻿# kick_game
 <!-- Project Logo and Badges -->
 <p align="center">
-  <img src="../img/Screenshot(200).png">
+  <img src="./img/[Screenshot(200).png](https://github.com/langerpereira/kick_game/blob/main/img/Screenshot%20(202).png)">
 </p>
 
 <p align="center">
